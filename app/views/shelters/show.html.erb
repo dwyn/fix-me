@@ -12,7 +12,7 @@
 <% @shelter.dogs.each do |dog|%>
   <% if !dog.owner %>
   <tr>
-    <td><strong><%=dog.name%></strong></td>
+    <td><strong><%=link_to dog.name, dog_path(dog) %></strong></td>
     <td><%=dog.breed%></td>
     <td><%= dog.age%></td>
     <% if dog.sex == 'M' %>
@@ -21,7 +21,7 @@
     <td>female</td>
     <% end %>
     <td><%= dog.shelter.name %></td>
-    <td><button> Adopt Me! </button> </td>
+    <td><%= link_to "Adopt Me!", "/dogs/#{dog.id}/adopt" %> </td>
   </tr>
   <% end %>
 <% end %>

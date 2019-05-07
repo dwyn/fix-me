@@ -8,10 +8,12 @@
         <th>Breed</th>
         <th>Age</th>
         <th>Sex</th>
+        <th>Owner</th>
+        <th>Abandon</th>
       </tr>
     <% owner.dogs.each do |dog|%>
       <tr>
-        <td><strong><%=dog.name%></strong></td>
+        <td><strong><%=link_to dog.name, dog_path(dog)%></strong></td>
         <td><%=dog.breed%></td>
         <td><%= dog.age%></td>
         <% if dog.sex == 'M' %>
@@ -19,6 +21,8 @@
         <% else %>
         <td>female</td>
         <% end %>
+        <td><%= dog.owner.name%></td>
+        <td><button><%= link_to "Abandon", "/dogs/#{dog.id}/abandon" %> </button> </td>
       </tr>
       <% end %>
     </table>

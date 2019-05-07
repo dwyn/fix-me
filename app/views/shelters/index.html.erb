@@ -24,7 +24,7 @@
       <td>female</td>
       <% end %>
       <td><%= dog.shelter.name %></td>
-      <td><button> Adopt Me! </button> </td>
+      <td><button><%= link_to "Adopt Me!", "/dogs/#{dog.id}/adopt" %> </button> </td>
     </tr>
     <% end %>
   <% end %>
